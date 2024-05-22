@@ -1,0 +1,19 @@
+    private class ArrayStackIterator implements Iterator<T> {
+
+        int numLeft = numItems;
+
+        @Override
+        public boolean hasNext() {
+            return numLeft > 0;
+        }
+
+        @Override
+        public T next() {
+            return stack[--numLeft];
+        }
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ArrayStackIterator();
+    }

@@ -1,0 +1,21 @@
+    private class QueueIterator implements Iterator<T> {
+
+        Node nextNode = front;
+
+        @Override
+        public boolean hasNext() {
+            return nextNode != null;
+        }
+
+        @Override
+        public T next() {
+            T item = nextNode.data;
+            nextNode = nextNode.next;
+            return item;
+        }
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new QueueIterator();
+    }    

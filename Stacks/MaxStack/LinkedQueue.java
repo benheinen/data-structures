@@ -1,0 +1,32 @@
+
+import java.util.Iterator;
+
+public class LinkedQueue<T> implements Queue<T> {
+
+	LinkedList<T> q = new LinkedList<>();
+
+	@Override
+	public void enqueue(T item) {
+		q.addBack(item);
+	}
+
+	@Override
+	public T dequeue() {
+		return q.removeFront();
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return q.isEmpty();
+	}
+
+	@Override
+	public int size() {
+		return q.size();
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		return q.iterator();
+	}
+}

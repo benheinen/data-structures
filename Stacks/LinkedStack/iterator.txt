@@ -1,0 +1,21 @@
+    private class StackIterator implements Iterator<T> {
+
+        Node next = top;
+
+        @Override
+        public boolean hasNext() {
+            return next != null;
+        }
+
+        @Override
+        public T next() {
+            T item = next.data;
+            next = next.next;
+            return item;
+        }
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new StackIterator();
+    }    

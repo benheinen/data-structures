@@ -1,0 +1,24 @@
+    private class ArrayQueueIterator implements Iterator<T> {
+
+        int numLeft = numItems;
+        int nextIndex = head;
+
+        @Override
+        public boolean hasNext() {
+            return numLeft > 0;
+        }
+
+        @Override
+        public T next() {
+            T item = queue[nextIndex++];
+            if (nextIndex == queue.length)
+                nextIndex = 0;
+            numLeft -= 1;
+            return item;
+        }
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ArrayQueueIterator();
+    }
